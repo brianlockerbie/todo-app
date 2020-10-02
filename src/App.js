@@ -1,14 +1,15 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { v4 as uuidv4 } from 'uuid';
-import './App.css';
+import React, { useState, useEffect, useRef } from "react";
+import { v4 as uuidv4 } from "uuid";
+import "./App.css";
 
 const App = () => {
-  const [inputValue, setInputValue] = useState('');
+  const firstRender = useRef(true);
+  const [inputValue, setInputValue] = useState("");
   const [todos, setTodos] = useState([]);
 
   const addTodo = (e) => {
     e.preventDefault();
-    if(inputValue.trim() === '') return;
+    if (inputValue.trim() === "") return;
 
     setTodos([
       ...todos,
@@ -18,8 +19,21 @@ const App = () => {
       },
     ]);
 
-    setInputValue('');
+    setInputValue("");
   };
+
+  const removeTodo = (id) => {
+    setTodos(todos.filter((todo) => todo.id !== id));
+  };
+
+  useEffect(() => {
+    if (firstRender.current){
+      console.log("true");
+      firstRender.current = false;
+    } else {
+      console.log("not first page load");
+    }
+  }, [todos]);
 
   return (
     <div className="App">
@@ -35,7 +49,8 @@ const App = () => {
         </form>
         {todos.map((todo) => (
           <div key={todo.id} className="todo">
-            <p>{todo.text}</p>  
+            <p>{todo.text}</p>
+            <i onClick={() => removeTodo(todo.id)} className="far fa-trash-alt"></i>
           </div>
         ))}
       </div>
