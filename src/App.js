@@ -34,7 +34,7 @@ const App = () => {
           <button type="submit">Add</button>
         </form>
         {todos.map((todo) => (
-          <div key={todo.id} classNAme="todo">
+          <div key={todo.id} className="todo">
             <p>{todo.text}</p>  
           </div>
         ))}
