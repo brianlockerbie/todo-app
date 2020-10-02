@@ -8,32 +8,39 @@ const App = () => {
 
   const addTodo = (e) => {
     e.preventDefault();
+    if(inputValue.trim() === '') return;
 
-    setTodos([...todos, {
-      text: inputValue,
-      id: uuidv4()
-    }])
-  }
+    setTodos([
+      ...todos,
+      {
+        text: inputValue,
+        id: uuidv4(),
+      },
+    ]);
+
+    setInputValue('');
+  };
 
   return (
     <div className="App">
       <div className="container">
         <form onSubmit={addTodo}>
-          <input type="text"
-          placeholder="Add a tast..."
-          value={inputValue}
-          onChange={e => setInputValue(e.target.value)}
+          <input 
+            type="text"
+            placeholder="Add a task..."
+            value={inputValue}
+            onChange={(e) => setInputValue(e.target.value)}
           />
           <button type="submit">Add</button>
         </form>
-        {todos.map(todo => (
-          <div classNAme="todo">
-            <p></p>  
+        {todos.map((todo) => (
+          <div key={todo.id} classNAme="todo">
+            <p>{todo.text}</p>  
           </div>
         ))}
       </div>
     </div>
   );
-}
+};
 
 export default App;
