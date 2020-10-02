@@ -8,7 +8,15 @@ const App = () => {
 
   return (
     <div className="App">
-      <div className="container"></div>
+      <div className="container">
+        <form>
+          <input type="text"
+          placeholder="Add a tast..."
+          value={inputValue}
+          />
+          <button type="submit">Add</button>
+        </form>
+      </div>
     </div>
   );
 }
