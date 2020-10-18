@@ -3,6 +3,8 @@
 <p align="center">The To-do list application</p>
 
 
+## 🕹 Live Demo: https://vigilant-swartz-3da59a.netlify.app/
+
 ## 🎮 How to use
 1. Type in your to-do task into the "Add a task..." bar and either press enter on your keyboard or click on the add button to add the to-do task. 
 
