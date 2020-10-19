@@ -3,7 +3,7 @@
 <p align="center">The To-do list application</p>
 
 
-## 🕹 Live Demo: https://vigilant-swartz-3da59a.netlify.app/
+## 🕹 Live Demo: https://react-to-do-app-list.netlify.app/
 
 
 ## 🎮 How to use
